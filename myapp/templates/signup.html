@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title> My Site </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <input type="text" id="username" placeholder="Username">
+    <input type="text" id="email" placeholder="email">
+    <input type="text" id="password" placeholder="Password">
+    <button onclick="login()"> Signup </button>
+
+<script>
+    function login(){
+        var rew = {"username": $('#username').val(), "password":$('#password').val(), "email":$('#email').val()}
+        var data = JSON.stringify(rew);
+        $.ajax({
+            url: '/signup/',
+            data: data,
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/json",
+            success: function (resp) {
+                if(resp.status == "SUCCESS"){
+                    window.location = "/home"
+                }
+            },
+        });
+
+    }
+</script>
+</body>
+</html>

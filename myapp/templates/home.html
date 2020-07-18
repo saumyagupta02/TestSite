@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title> My Site </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h1>Home</h1>
+    <button id="logout()">Logout</button>
+
+<script>
+    function logout(){
+        $.ajax({
+            url: '/logout/',
+            data: null,
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/json",
+            success: function (resp) {
+                    window.location = "/login"
+                }
+            },
+        });
+    }
+</script>
+</body>
+</html>
